@@ -1,0 +1,294 @@
+ {
+--bg: #eef4fc;
+--card: #ffffff;
+--text: #091540;
+--muted: #535868;
+--border: #d6d9e0;
+--button: #ffffff;
+--accent: #c7221a;
+}
+
+{
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+min-height: 100vh;
+font-family: Arial, sans-serif;
+color: var(--text);
+background: linear-gradient(180deg, #ebf2fc, #eef8f9);
+}
+
+button {
+font: inherit;
+cursor: pointer;
+}
+
+button {
+outline: 3px solid var(--accent);
+outline-offset: 3px;
+}
+
+.container {
+width: min(1200px, calc(100% - 40px));
+margin: 35px auto;
+}
+
+/* Header */
+
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px;
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: 14px;
+margin-bottom: 35px;
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 21px;
+font-weight: bold;
+}
+
+.logo img {
+width: 35px;
+height: 35px;
+}
+
+.theme-toggle {
+width: 44px;
+height: 44px;
+display: grid;
+place-items: center;
+border: 1px solid var(--border);
+border-radius: 10px;
+background: var(--button);
+}
+
+.theme-toggle img {
+width: 22px;
+height: 22px;
+}
+
+/* Heading and filters */
+
+.toolbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 20px;
+margin-bottom: 22px;
+}
+
+.toolbar h1 {
+margin: 0;
+font-size: 28px;
+}
+
+.filters {
+display: flex;
+gap: 8px;
+}
+
+.filter-btn {
+padding: 9px 17px;
+border: 1px solid var(--border);
+border-radius: 25px;
+color: var(--text);
+background: var(--button);
+}
+
+.filter-btn.active {
+background: var(--accent);
+border-color: var(--accent);
+color: white;
+}
+
+/* Cards grid */
+
+.extensions-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 14px;
+}
+
+/* Individual card */
+
+.extension-card {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+gap: 25px;
+padding: 18px;
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: 15px;
+}
+
+.extension-info {
+display: flex;
+align-items: flex-start;
+gap: 14px;
+}
+
+.extension-logo {
+width: 60px;
+height: 60px;
+object-fit: contain;
+flex-shrink: 0;
+}
+
+.extension-text h2 {
+margin: 0 0 8px;
+font-size: 17px;
+}
+
+.extension-text p {
+margin: 0;
+color: var(--muted);
+font-size: 13px;
+line-height: 1.6;
+overflow-wrap: anywhere;
+}
+
+/* Buttons at the bottom of each card */
+
+.extension-actions {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 12px;
+}
+
+.remove-btn {
+padding: 8px 13px;
+border: 1px solid var(--border);
+border-radius: 22px;
+background: var(--button);
+color: var(--text);
+}
+
+.remove-btn {
+background: var(--accent);
+color: white;
+}
+
+/* Active switch */
+
+.switch {
+position: relative;
+width: 38px;
+height: 22px;
+display: inline-block;
+flex-shrink: 0;
+}
+
+.switch input {
+position: absolute;
+opacity: 0;
+width: 1px;
+height: 1px;
+}
+
+.switch-track {
+position: absolute;
+inset: 0;
+background: #9ba0ad;
+border-radius: 20px;
+cursor: pointer;
+transition: background 0.2s;
+}
+
+.switch-track::before {
+content: "";
+position: absolute;
+width: 16px;
+height: 16px;
+left: 3px;
+top: 3px;
+border-radius: 50%;
+background: white;
+transition: transform 0.2s;
+}
+
+.switch input + .switch-track {
+background: var(--accent);
+}
+
+.switch input + .switch-track::before {
+transform: translateX(16px);
+}
+
+.switch input + .switch-track {
+outline: 3px solid var(--accent);
+outline-offset: 3px;
+}
+
+/* Footer */
+
+.attribution {
+padding: 20px;
+text-align: center;
+font-size: 11px;
+}
+
+.attribution a {
+color: var(--accent);
+}
+
+/* Dark theme */
+
+body.dark-theme {
+--bg: #091540;
+--card: #202b4a;
+--text: #ffffff;
+--muted: #c7cbd8;
+--border: #49536d;
+--button: #202b4a;
+--accent: #f15b52;
+
+background: linear-gradient(180deg, #040918, #091540);
+
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+.extensions-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+.container {
+width: calc(100% - 32px);
+margin: 20px auto;
+}
+
+.toolbar {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.toolbar h1 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.filters {
+    justify-content: center;
+}
+
+.extensions-grid {
+    grid-template-columns: 1fr;
+}
+
+}
